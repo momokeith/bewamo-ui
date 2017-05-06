@@ -1,0 +1,6 @@
+---
+
+- name: Building {{ project_name }}
+  command: ant
+  args:
+    chdir: "{{ web_dir }}/{{ project_name }}/{{ commit_hash.stdout }}"

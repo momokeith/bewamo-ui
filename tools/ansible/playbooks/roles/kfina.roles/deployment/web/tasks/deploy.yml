@@ -1,0 +1,17 @@
+---
+
+- debug:
+      msg: "Deploying {{ commit_hash.stdout }}"
+
+- name: Change owner
+  command: chown -R www-data:www-data {{ web_dir }}/{{ project_name }}/{{ commit_hash.stdout }}
+
+- name: Change directory access
+  command: chmod -R u=rwx,go=rx {{ web_dir }}/{{ project_name }}/{{ commit_hash.stdout }}
+
+- name: Create link {{ web_dir }}/{{ project_name }}/current
+  file:
+   path: "{{ web_dir }}/{{ project_name }}/current"
+   src: "{{ web_dir }}/{{ project_name }}/{{ commit_hash.stdout }}"
+   state: link
+   mode: "u=rwx,go=rx"

@@ -1,0 +1,10 @@
+---
+
+vhosts:
+  ui.bewamo:
+    server_names:
+      - ui.bewamo.local
+    root: /var/www/bewamo-ui/current/src
+    location:
+      php:
+        fastcgi_pass: unix:/var/run/php/php7.1-fpm.sock

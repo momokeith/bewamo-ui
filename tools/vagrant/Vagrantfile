@@ -1,0 +1,23 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+
+  config.vm.hostname = "ui.bewamo.local"
+
+  config.vm.network "private_network", ip: "192.168.50.5"
+
+  config.vm.synced_folder "../..", "/var/www/bewamo-ui/current"
+
+  config.vm.define "ubuntu1404", primary: true do |node|
+    node.vm.box = "ubuntu/trusty64"
+    node.vm.provision "ansible" do |ansible|
+      ansible.playbook = "../ansible/playbooks/provisioning.yml"
+      ansible.sudo = true
+      ansible.inventory_path = "../ansible/inventories"
+      ansible.limit = "local"
+      ansible.galaxy_role_file = "../ansible/requirements.yml"
+      ansible.galaxy_roles_path = "../ansible/playbooks/roles"
+    end
+  end
+end

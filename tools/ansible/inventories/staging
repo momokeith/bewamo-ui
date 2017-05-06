@@ -1,0 +1,2 @@
+[staging]
+bewamo-staging ansible_host=api.staging.bewamo.com ansible_user=ansible

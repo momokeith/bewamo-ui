@@ -1,0 +1,6 @@
+---
+# tasks file for ansible-role-git
+
+- name: Install git
+  apt:
+    name: git

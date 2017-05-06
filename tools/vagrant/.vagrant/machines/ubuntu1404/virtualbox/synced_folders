@@ -1,0 +1,1 @@
+{"virtualbox":{"/var/www/bewamo-ui/current":{"guestpath":"/var/www/bewamo-ui/current","hostpath":"/Users/mohamed.keita/Projects/Personal/bewamo-ui","disabled":false,"__vagrantfile":true},"/vagrant":{"guestpath":"/vagrant","hostpath":"/Users/mohamed.keita/Projects/Personal/bewamo-ui/tools/vagrant","disabled":false,"__vagrantfile":true}}}

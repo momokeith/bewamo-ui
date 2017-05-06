@@ -1,0 +1,25 @@
+
+server {
+    listen *:80;
+    listen *:443 ssl;
+
+    server_name {{ item.value.server_names | join(" ") }};
+
+    root {{ item.value.root }};
+
+    index index.php index.html;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    location ~ \.php$ {
+        fastcgi_split_path_info ^(.+\.php)(/.+)$;
+        fastcgi_pass {{ item.value.location.php.fastcgi_pass }};
+        fastcgi_index index.php;
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
+        fastcgi_param DOCUMENT_ROOT $realpath_root;
+        internal;
+    }
+}
