@@ -1,2 +1,2 @@
 [local]
-ui.bewamo.local ansible_host=ui.bewamo.local ansible_user=vagrant
+ui.bewamo.local ansible_host=bo.bewamo.local ansible_user=vagrant

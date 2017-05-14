@@ -3,8 +3,8 @@
 vhosts:
   ui.bewamo:
     server_names:
-      - ui.staging.bewamo.com
-    root: /var/www/bewamo-ui/current/public
+      - bo.staging.bewamo.com
+    root: "{{ web_dir }}/{{ project_name }}/current/dist"
     location:
       php:
         fastcgi_pass: unix:/var/run/php/php7.1-fpm.sock

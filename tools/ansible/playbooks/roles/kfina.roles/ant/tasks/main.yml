@@ -1,6 +1,0 @@
----
-# tasks file for ant
-
-- name: Install ant
-  apt:
-    name: ant
